@@ -24,7 +24,8 @@ A graphical interface for managing Podman containers and Kubernetes (K8s) from y
 
 ## Install Podman on Ubuntu
 
-- ``
+- `sudo apt update`
+- `sudo apt install podman`
 
 
 @3/61
