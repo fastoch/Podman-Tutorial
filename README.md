@@ -28,4 +28,4 @@ A graphical interface for managing Podman containers and Kubernetes (K8s) from y
 - `sudo apt install podman`
 
 
-@3/61
+@4/60
