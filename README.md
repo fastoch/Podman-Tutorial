@@ -16,9 +16,11 @@ Podman offer many features:
 With Podman, you can create multi-container pods locally, and export them as a K8s manifest.  
 Being daemonless means that Podman interacts directly with `runc`, a CLI tool for running containers on Linux.  
 
-## Podman Desktop
+### Podman Desktop
 
-A graphical interface for managing Podman containers and Kubernetes (K8s) from your desktop.  
+is a graphical interface for managing Podman containers and Kubernetes (K8s) from your desktop.  
+
+---
 
 # How to install Podman
 
@@ -27,5 +29,37 @@ A graphical interface for managing Podman containers and Kubernetes (K8s) from y
 - `sudo apt update`
 - `sudo apt install podman`
 
+For this tutorial, we'll use an **Ubuntu** machine.
 
-@4/60
+## Podman on non-Linux machines
+
+As containers are a Linux technology, you can't run them on Mac or Windows.  
+The only way to run containers on these operating systems is to rely on a Linux VM.  
+For this reason, after you have installed Podman, you need to run `podman machine init` then `podman machine start` in order to run Podman on non-Linux systems.  
+
+- The default machine name will be `podman-machine-default`.  
+- Only one Podman VM can be active.
+
+---
+
+# Custom Container Registry Configuration
+
+One of the most popular container registries is **Docker Hub**.  
+
+But thanks to the **Podman Container Registry Configuration**, we can also use other registries such as:
+- GitHub Container Registry (ghcr)
+- RedHat Container Registry
+- or your company's private registry
+
+The file for the Podman custom container registry configuration is located in `/etc/containers/registries.conf`.  
+Podman uses this file when you pull or push an image, and every time you attempt to connect to a container registry.  
+
+Instead of changing the default registry configuration, you can have a different config file for your user.  
+For that, just create a separate config file in `$HOME/.config/containers/registries.conf`
+
+- run `cd` to place yourself in your home directory, which is represented by `~` or `$HOME`
+- Open this file with Vim: `vim .config/containersregistries.conf`
+- 
+
+
+@10/60
