@@ -29,7 +29,7 @@ is a graphical interface for managing Podman containers and Kubernetes (K8s) fro
 - `sudo apt update`
 - `sudo apt install podman`
 
-For this tutorial, we'll use an **Ubuntu** machine.
+We'll use an **Ubuntu** machine until the end of this tutorial.
 
 ## Podman on non-Linux machines
 
