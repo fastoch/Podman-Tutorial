@@ -16,7 +16,7 @@ Podman offer many features:
 With Podman, you can create multi-container pods locally, and export them as a K8s manifest.  
 Being daemonless means that Podman interacts directly with `runc`, a CLI tool for running containers on Linux.  
 
-### Podman Desktop
+## Podman Desktop
 
 is a graphical interface for managing Podman containers and Kubernetes (K8s) from your desktop.  
 
@@ -58,8 +58,28 @@ Instead of changing the default registry configuration, you can have a different
 For that, just create a separate config file in `$HOME/.config/containers/registries.conf`
 
 - run `cd` to place yourself in your home directory, which is represented by `~` or `$HOME`
-- Open this file with Vim: `vim .config/containersregistries.conf`
-- 
+- create the 'containers' folder: `mkdir .config/containers`
+- create and edit the config file with Vim: `vim .config/containers/registries.conf`
+- press `i` to enter insert mode
+![image](https://github.com/user-attachments/assets/b196afc3-a2c5-48d4-8153-1a2f99f2b2a2)
+- press `Esc` to exit the insert mode, type `:wq` and press `Enter` to write and quit.
+
+## The `podman search` command
+
+Basic syntax: `podman search <image_name>`  
+This command searches a registry, or a list of registries, for images that match the name we specify.  
+
+We can specify which registry to search by prefixing the search term: `podman search docker.io/library/fedora`  
+By default, all unqualified searches will use the `unqualified-search-registries` list from our custom config file.  
+
+---
+
+# Pulling a container image 
+
+- to pull an image from a registry and store it locally: `podman pull <image_name>`
+- to list images in local storage: `podman images`
 
 
-@10/60
+
+
+@12/60
