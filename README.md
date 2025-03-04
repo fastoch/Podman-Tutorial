@@ -46,9 +46,9 @@ For this reason, after you have installed Podman, you need to run `podman machin
 
 One of the most popular container registries is **Docker Hub**.  
 
-But thanks to the **Podman Container Registry Configuration**, we can also use other registries such as:
-- GitHub Container Registry (ghcr)
-- RedHat Container Registry
+But thanks to the **Podman Container Registry Configuration**, we can use other registries such as:
+- GitHub Container Registry (**ghcr**)
+- RedHat Container Registry (**quay**)
 - or your company's private registry
 
 The file for the Podman custom container registry configuration is located in `/etc/containers/registries.conf`.  
@@ -79,9 +79,14 @@ By default, all unqualified searches will use the `unqualified-search-registries
 # Pulling a container image 
 
 - to pull an image from a registry and store it locally: `podman pull <image_name>`
+  - when we don't specify any tag, podman tries to pull the latest version
 - to list images in local storage: `podman images`
 
+![image](https://github.com/user-attachments/assets/7151e8ce-9c07-411d-a121-e493efa43cb3)  
 
 
 
-@12/60
+
+
+
+@13/60
