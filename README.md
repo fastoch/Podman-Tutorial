@@ -59,9 +59,11 @@ For that, just create a separate config file in `$HOME/.config/containers/regist
 
 - run `cd` to place yourself in your home directory, which is represented by `~` or `$HOME`
 - create the 'containers' folder: `mkdir .config/containers`
-- create and edit the config file with Vim: `vim .config/containers/registries.conf`
+- create and edit the config file with **Vim**: `vim .config/containers/registries.conf`
 - press `i` to enter insert mode
+  
 ![image](https://github.com/user-attachments/assets/b196afc3-a2c5-48d4-8153-1a2f99f2b2a2)
+
 - press `Esc` to exit the insert mode, type `:wq` and press `Enter` to write and quit.
 
 ## The `podman search` command
