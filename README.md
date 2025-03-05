@@ -100,15 +100,31 @@ We can use the `--name` flag when creating a container. If we don't specify a co
 
 # Working with containers
 
+Some additional useful commands:
 ```bash
-podman run --name <container_name> -p ext_port:int_port <container_image>
-podman start <container1> <container2> ...
-podman stop <container1> <container2> ...
-podman inspect <container_name>
-podman port <container_name>
-podman rm <container_name>
-podman rmi <container_image>
+podman run --name <container_name> -p <host_port>:<container_port> <image>
+podman start <container_name_or_ID>
+podman stop <container_name_or_ID>
+podman inspect <container_name_or_ID>
+podman port <container_name_or_ID>
+podman rm <container_name_or_ID>
+podman rmi <image>
 ```
+- `podman inspect` provides all the information about the container in JSON format
+- `podman port` lists all port mappings for the specified container
+
+Let's put the previous commands into practice:
+```bash
+podman search nginx
+podman run --name pdm-nginx -p 8080:80 nginx
+```
+- Note that the `podman run` command pulls the image only if not already present on your system.
+- Using the `--name` flag can lead to **naming conflicts**, it's best not to use it and let podman assign random names
+- if you haven't used `-d` to run the container in detached mode, press `Ctrl + C` to stop it.
+- when using the `podman start` command, your container will run in detached mode by default
+
+## Accessing an Nginx Web server container from the local host
 
 
-@16/60
+
+@20/60
