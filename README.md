@@ -94,6 +94,21 @@ By default, all unqualified searches will use the `unqualified-search-registries
 To check if a container is running: `podman ps`  
 To see all containers and their current status: `podman ps -a`  
 
+We can use the `--name` flag when creating a container. If we don't specify a container name, podman gives it a random name.  
+
+---
+
+# Working with containers
+
+```bash
+podman run --name <container_name> -p ext_port:int_port <container_image>
+podman start <container1> <container2> ...
+podman stop <container1> <container2> ...
+podman inspect <container_name>
+podman port <container_name>
+podman rm <container_name>
+podman rmi <container_image>
+```
 
 
-@15/60
+@16/60
