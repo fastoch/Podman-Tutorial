@@ -84,9 +84,16 @@ By default, all unqualified searches will use the `unqualified-search-registries
 
 ![image](https://github.com/user-attachments/assets/7151e8ce-9c07-411d-a121-e493efa43cb3)  
 
+# Bulding & Running a container from an image
+
+- `podman run -it <image_name>`
+  - the `-it` flags enable an _interactive terminal_ session with the container
+- `podman run -it --rm <image_name>`
+  - the `--rm` option deletes the container on exit, **recommended** to avoid filling up your filesystem with ephemeral containers
+
+To check if a container is running: `podman ps`  
+To see all containers and their current status: `podman ps -a`  
 
 
 
-
-
-@13/60
+@15/60
