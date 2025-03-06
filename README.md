@@ -62,7 +62,7 @@ For that, just create a separate config file in `$HOME/.config/containers/regist
 - create and edit the config file with **Vim**: `vim .config/containers/registries.conf`
 - press `i` to enter insert mode
   
-![image](https://github.com/user-attachments/assets/b196afc3-a2c5-48d4-8153-1a2f99f2b2a2)
+![image](https://github.com/user-attachments/assets/068cbf09-728c-4848-831b-7f76e75b9695)
 
 - press `Esc` to exit the insert mode, type `:wq` and press `Enter` to write and quit.
 
