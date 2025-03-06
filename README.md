@@ -123,8 +123,9 @@ podman run --name pdm-nginx -p 8080:80 nginx
 - if you haven't used `-d` to run the container in detached mode, press `Ctrl + C` to stop it.
 - when using the `podman start` command, your container will run in detached mode by default
 
-## Accessing an Nginx Web server container from the local host
+## Accessing an Nginx container from the local host's browser
 
+Nginx is a very popular versatile web server.  
 
 
 @20/60
