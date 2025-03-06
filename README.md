@@ -128,8 +128,11 @@ podman run --name pdm-nginx -p 8080:80 nginx
 Nginx is a very popular versatile web server.  
 Now that we have started a podman nginx container with port mapping, we can access our web server via:
 - a web browser:
+
 ![image](https://github.com/user-attachments/assets/069fb6bb-39a4-44b4-bc41-1c0075388ee0)
+
 - the `curl` utility:
+
 ![image](https://github.com/user-attachments/assets/c23b9ee5-c772-4279-8545-44e79a5bcd00)
 
 
