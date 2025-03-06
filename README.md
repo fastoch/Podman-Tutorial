@@ -73,6 +73,7 @@ This command searches a registry, or a list of registries, for images that match
 
 We can specify which registry to search by prefixing the search term: `podman search docker.io/library/fedora`  
 By default, all unqualified searches will use the `unqualified-search-registries` list from our custom config file.  
+![image](https://github.com/user-attachments/assets/6cd4ce9c-2932-432f-864c-f02a696fa39d)
 
 ---
 
@@ -94,7 +95,7 @@ By default, all unqualified searches will use the `unqualified-search-registries
 To check if a container is running: `podman ps`  
 To see all containers and their current status: `podman ps -a`  
 
-We can use the `--name` flag when creating a container. If we don't specify a container name, podman gives it a random name.  
+We can use the `--name` flag when creating a container. If we don't specify a container name, podman will give it a random name.  
 
 ---
 
