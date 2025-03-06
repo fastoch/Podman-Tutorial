@@ -118,7 +118,7 @@ Let's put the previous commands into practice:
 podman search nginx
 podman run --name pdm-nginx -p 8080:80 nginx
 ```
-- Note that the `podman run` command pulls the image only if not already present on your system.
+- Note that the `podman run` command will only pull the image if it's not already present on your system
 - Using the `--name` flag can lead to **naming conflicts**, it's best not to use it and let podman assign random names
 - if you haven't used `-d` to run the container in detached mode, press `Ctrl + C` to stop it.
 - when using the `podman start` command, your container will run in detached mode by default
@@ -126,6 +126,13 @@ podman run --name pdm-nginx -p 8080:80 nginx
 ## Accessing an Nginx container from the host's browser
 
 Nginx is a very popular versatile web server.  
+Now that we have started a podman nginx container with port mapping, we can access our web server via:
+- a web browser:
+![image](https://github.com/user-attachments/assets/069fb6bb-39a4-44b4-bc41-1c0075388ee0)
+- the `curl` utility:
+![image](https://github.com/user-attachments/assets/c23b9ee5-c772-4279-8545-44e79a5bcd00)
+
+
 
 
 @20/60
