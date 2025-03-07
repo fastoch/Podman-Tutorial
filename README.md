@@ -169,8 +169,11 @@ So the steps are:
 - build the container image from that containerfile
 - run the container from that image
 
+In this tutorial, we'll create a simple application in Go that exposes a web service with a single endpoint.  
+The endpoint responds with the message "Hello Podman from Go!".  
 
 
 
 
-@23/60
+
+@24/60
