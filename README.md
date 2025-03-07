@@ -175,6 +175,10 @@ The endpoint responds with the message "Hello Podman from Go!".
 ## Creating our simple app
 
 - first, make sure that Go is installed by running `go version`
+- if not, install it via `sudo apt install golang-go` (if running a Debian-based Linux distro)
+- now, let's create a **project folder**: `mkdir pdm-golang`
+- make it the working directory: `cd pdm-golang`
+- 
 
 
 
