@@ -172,7 +172,9 @@ So the steps are:
 In this tutorial, we'll create a simple application in Go that exposes a web service with a single endpoint.  
 The endpoint responds with the message "Hello Podman from Go!".  
 
+## Creating our simple app
 
+- first, make sure that Go is installed by running `go version`
 
 
 
