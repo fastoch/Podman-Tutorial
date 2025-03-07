@@ -68,7 +68,7 @@ For that, just create a separate config file in `$HOME/.config/containers/regist
 
 ## The `podman search` command
 
-Basic syntax: `podman search <image_name>`  
+Basic syntax: `podman search <image>`  
 This command searches a registry, or a list of registries, for images that match the name we specify.  
 
 We can specify which registry to search by prefixing the search term: `podman search docker.io/library/fedora`  
@@ -79,7 +79,7 @@ By default, all unqualified searches will use the `unqualified-search-registries
 
 # Pulling a container image 
 
-- to pull an image from a registry and store it locally: `podman pull <image_name>`
+- to pull an image from a registry and store it locally: `podman pull <image_URL>`
   - when we don't specify any tag, podman tries to pull the latest version
 - to list images in local storage: `podman images`
 
@@ -87,12 +87,12 @@ By default, all unqualified searches will use the `unqualified-search-registries
 
 # Bulding & Running a container from an image
 
-- `podman run -it <image_name>`
+- `podman run -it <image>`
   - the `-it` flags enable an _interactive terminal_ session with the container
-- `podman run -it --rm <image_name>`
+- `podman run -it --rm <image>`
   - the `--rm` option deletes the container on exit, **recommended** to avoid filling up your filesystem with ephemeral containers
 
-To check if a container is running: `podman ps`  
+To display all running containers: `podman ps`  
 To see all containers and their current status: `podman ps -a`  
 
 We can use the `--name` flag when creating a container. If we don't specify a container name, podman will give it a random name.  
@@ -103,16 +103,22 @@ We can use the `--name` flag when creating a container. If we don't specify a co
 
 Some additional useful commands:
 ```bash
+podman --help
 podman run --name <container_name> -p <host_port>:<container_port> <image>
 podman start <container_name_or_ID>
 podman stop <container_name_or_ID>
 podman inspect <container_name_or_ID>
 podman port <container_name_or_ID>
 podman rm <container_name_or_ID>
-podman rmi <image>
+podman images
+podman rmi <image ID>
 ```
-- `podman inspect` provides all the information about the container in JSON format
+- `podman --help` to show information about all podman commands
+- `podman inspect` provides all the low-level information about the container in JSON format
 - `podman port` lists all port mappings for the specified container
+- `podman rm` removes the specified container
+- `podman images` displays all images available on the host
+- `podman rmi` removes the specified image
 
 Let's put the previous commands into practice:
 ```bash
@@ -139,4 +145,4 @@ Now that we have started a podman nginx container with port mapping, we can acce
 
 
 
-@20/60
+@22/60
