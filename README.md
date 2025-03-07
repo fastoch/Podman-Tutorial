@@ -146,6 +146,12 @@ Now that we have started a podman nginx container with port mapping, we can acce
 
 # Building an image
 
+The whole point of **containerization** is to:
+- make our applications run the same on any system (OS-independent)
+- make our apps portable and easy to deploy
+- allow us to deploy fast, and recover as fast when things go wrong
+- run our apps in an isolated environment, which adds a layer of security
+
 Up until now, we've been working with existing images such as Nginx or Busybox, but we can create our own container images.  
 To do that, we need to use a specific file (`Dockerfile`) that will allow us to containerize our application and build an image out of it.  
 
