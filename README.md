@@ -85,7 +85,7 @@ By default, all unqualified searches will use the `unqualified-search-registries
 
 ![image](https://github.com/user-attachments/assets/7151e8ce-9c07-411d-a121-e493efa43cb3)  
 
-# Bulding & Running a container from an image
+# Running a container from an image
 
 - `podman run -it <image>`
   - the `-it` flags enable an _interactive terminal_ session with the container
@@ -142,7 +142,29 @@ Now that we have started a podman nginx container with port mapping, we can acce
 
 ![image](https://github.com/user-attachments/assets/c23b9ee5-c772-4279-8545-44e79a5bcd00)
 
+---
+
+# Building an image
+
+Up until now, we've been working with existing images such as Nginx or Busybox, but we can create our own container images.  
+To do that, we need to use a specific file (`Dockerfile`) that will allow us to containerize our application and build an image out of it.  
+
+Podman's equivalent to a `Dockerfile` is a `Containerfile`. Both Containerfiles and Dockerfiles use the same syntax internally,  
+allowing us to build container images using Podman without needing to modify our existing Dockerfiles.  
+Podman supports building images from either a `Containerfile` or a `Dockerfile`.  
+
+A `Containerfile` is a script that contains instructions on how to build a container image.  
+Once we have our `Containerfile`, we can use the `podman build` command to build our container image.  
+The `podman build` command will build the image from the Dockerfile/Containerfile located in the current directory.  
+
+Once the image has been built, we can use the `podman run` command to run the container from this image.  
+So the steps are:
+- write the dockerfile/containerfile
+- build the container image from that containerfile
+- run the container from that image
 
 
 
-@22/60
+
+
+@23/60
