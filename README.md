@@ -288,7 +288,16 @@ podman build -t pdm-golang .
 Here's the output of the `podman build` command:  
 ![image](https://github.com/user-attachments/assets/d848fc67-a556-45ab-9c34-107b74b16f4d)
 
-As you can see in the above screenshot, the 
+The `ls` command shows that the image we've created is not visible as a file, but `podman images` allows us to see it.  
+Since we haven't provided a version for our image, Podman automatically tagged it as the "latest" version.
+
+## Running our containerized application 
+
+`podman run -d -p 8080:8080 pdm-golang:latest`  
+
+![image](https://github.com/user-attachments/assets/417adc57-a544-4f84-baac-3a4dc18734fa)  
 
 
-@28/60
+
+
+@30/60
