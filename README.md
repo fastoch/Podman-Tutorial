@@ -302,13 +302,30 @@ Since we haven't provided a version for our image, Podman automatically tagged i
 # Sharing a container image
 
 Our containerized application only exists locally, let's see how to share its image with others so they can use our application.  
+For that, we need to push our image to a **container registry**.  
+- `podman login <registry_name>`
+- `podman build -t <username>/<image_name> .`
+- `podman push <username>/<container_name>`
 
+The first command is used to authenticate to the specified container registry.  
+The second one is used to build a container image using the Dockerfile located in the current directory.  
+The last command is used to push the image to the container registry.  
+
+Before continuing, you need to choose a container registry and make sure you have credentials to log in to it.  
+In the following example, we'll push the container image to DockerHub.  
+
+- `podman login docker.io`
+
+![image](https://github.com/user-attachments/assets/6f513750-f60b-45cc-9874-089a3181f6b8)
+
+- 
 
 ---
 
 # Deploying our containerized application 
 
-We have successfully containerized our application and were able to run it locally in our development environment.  
+We have successfully containerized our application, and were able to run it locally.  
+We also learnt how to share it by pushing the image to a container registry.  
 Now we need to learn how to deploy it so it runs in a production environment.  
 
 
