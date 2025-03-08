@@ -297,6 +297,20 @@ Since we haven't provided a version for our image, Podman automatically tagged i
 
 ![image](https://github.com/user-attachments/assets/417adc57-a544-4f84-baac-3a4dc18734fa)  
 
+---
+
+# Sharing a container image
+
+Our containerized application only exists locally, let's see how to share its image with others so they can use our application.  
+
+
+---
+
+# Deploying our containerized application 
+
+We have successfully containerized our application and were able to run it locally in our development environment.  
+Now we need to learn how to deploy it so it runs in a production environment.  
+
 
 
 
