@@ -246,8 +246,22 @@ We can also open a web browser and go to `localhost:8080` to see the same messag
 Of course, for production or more complex projects, it's better to use `go build` to create an executable.  
 Here we're just running a very simple program which doesn't require the use of `go build`.  
 
+---
 
+# Let's containerize our application
 
+To do this, let's create a file with all the necessary instructions.  
+Even if we use Podman, we can name our file `Dockerfile`.  
+
+This file will allow us to build the container image of our Golang application.  
+And inside the container, our app will run on an Alpine Linux distribution.  
+
+Here's our Dockerfile:
+```dockerfile
+FROM golang:1.22-alpine
+```
+- the first line specifies the base image: a pre-configured environment with Go 1.22 installed on top of Alpine Linux
+- 
 
 
 @27/60
