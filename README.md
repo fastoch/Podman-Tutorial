@@ -325,9 +325,9 @@ Now, we should find this new container image on our local machine:
 ![image](https://github.com/user-attachments/assets/2cd2d936-44f3-43e7-b44f-ca5c03eb3850)
 Which is exactly the same image as the one we've previously created (same ID).  
 
-This format <username>/<image_name> is important because it tells Podman where to publish the image in the registry.  
+This format `<username>/<image_name>` is important because it tells Podman where to publish the image in the registry.  
 
-- To publish (push) the image on the registry: `podman push fastoch/pdm-golang`
+- To publish the image on the registry: `podman push fastoch/pdm-golang`
 
 We have successfully published our first container image to the DockerHub registry:  
 ![image](https://github.com/user-attachments/assets/f74e0bf7-2ca0-491a-9140-ce3e54643f1e)
