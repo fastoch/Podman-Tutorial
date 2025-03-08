@@ -340,13 +340,19 @@ And test it:
 
 ---
 
-# Deploying our containerized application 
+# Building Pods with Podman
 
-We have successfully containerized our application, and were able to run it locally.  
-We also learnt how to share it by pushing the image to a container registry.  
-Now we need to learn how to deploy it so it runs in a production environment.  
+Unlike Docker, Podman allows us to create **pods**, which are similar to **Kubernetes** pods.  
+These pods provide a way for applications to be managed and scaled within a Kubernetes **cluster**.  
+
+**Kubernetes API objects** such as Deployments, ReplicaSets, and StatefulSets are used to define and manage the desired state of applications running in a Kubernetes cluster.  
+
+## Useful commands for managing Podman pods
+
+- `podman pod --help` provides a list of all available commands and options to use when working with pods
+- `podman pod create --name <pod_name>` creates a new and empty pod
+- `podman pod ls` lists all created pods
+- `podman ps -a --pod` lists all containers, including stopped ones, along with information about the pods they belong to
 
 
-
-
-@33/60
+@36/60
