@@ -3,8 +3,14 @@ Podman Tutorial Zero to Hero - https://www.youtube.com/watch?v=YXfA5O5Mr18
 
 # What is Podman?
 
-Podman is a daemon-less, open-source Linux-native tool designed to make it easy to find, run, build, share, and deploy applications using OCI (Open Container Initiative) containers 
-and container images.  
+Podman was written in the **Go** programming language.  
+
+Go, also known as **Golang**, is a statically typed, compiled language developed by Google.  
+It is known for its simplicity, efficiency, and strong support for **concurrent programming**, making it well-suited 
+for developing containerization tools like Podman.
+
+Podman is a daemon-less, open-source Linux-native tool designed to make it easy to find, run, build, share, and deploy applications using 
+OCI (Open Container Initiative) containers and container images.  
 
 The OCI aims to create industry standards around container formats and runtimes.  
 
@@ -172,22 +178,76 @@ So the steps are:
 In this tutorial, we'll create a simple application in Go that exposes a web service with a single endpoint.  
 The endpoint responds with the message "Hello Podman from Go!".  
 
-## Creating our simple app
+## Creating our simple application
 
 - first, make sure that Go is installed by running `go version`
 - if not, install it via `sudo apt install golang-go` (if running a Debian-based Linux distro)
 - now, let's create a **project folder**: `mkdir pdm-golang`
 - make it the working directory: `cd pdm-golang`
 - to initialize our Go project: `go mod init pdm-golang`
+- now we can create the `main.go` file to implement the application logic
+
+```go
+package main
+
+import (
+  "fmt";
+  "net/http";
+)
+
+func main() {
+  http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, "Hello Podman from Go!")
+  })
+
+  http.ListenAndServe(":8080", nil)
+}
+```
+- The "fmt" package provides formatting functions such as `Fprintln` which we need to write the HTTP response message
+- to expose the web service (to create an HTTP server), we use the standard `net/http` library provided by Go
+
+The `main()` function is the **entry point** of the program that peforms the following tasks:
+- it registers a **handler** function for the root path `"/"`
+- the handler function takes 2 arguments: a ResponseWriter and a Request
+  - the `ResponseWriter` creates the response that will be sent back to the client that has made an HTTP request
+  - the `Request` contains information about the incoming HTTP requests
+- this handler function uses the `fmt.Fprintln()` function to write the "Hello" message to the `ResponseWriter`
+- finally, the program calls the `http.ListenAndServe` function to start the HTTP server and make it listen on port 8080
+  - The server will listen on all available network interfaces because no specific IP address is provided before the port number
+  - Using `nil` as the second parameter means you're using the default `http.DefaultServeMux` for routing requests
+  - This function call is blocking, so any code after it won't execute until the HTTP server stops
+
+This program creates an HTTP server listening on port 8080 and responds to requests with the message "Hello Podman from Go!".  
+
+**Note**:  
+For more control over our HTTP server's behavior, we would create a custom `http.Server` instance instead of using `ListenAndServe`.
+
+---
 
 ### About the `go mod init` command
 
 The primary purpose of `go mod init` is to initialize a Go module in our project.  
+
 A Go module is a collection of related Go packages that are versioned together, ensuring reproducible builds by tracking dependencies and their versions.  
 
 It simplifies dependency management by creating a `go.mod` file, which lists the module's dependencies and their versions.  
 This file is crucial for maintaining reproducible builds across different environments.
 
+---
+
+## Running our application
+
+To run the application, open a new terminal and run `go run main.go`.  
+Then, in the first terminal, run `curl localhost:8080`.  
+![image](https://github.com/user-attachments/assets/167c0afb-a746-4362-b1c3-2914a204337e)
+
+We can also open a web browser and go to `localhost:8080` to see the same message.  
+
+Of course, for production or more complex projects, it's better to use `go build` to create an executable.  
+Here we're just running a very simple program which doesn't require the use of `go build`.  
 
 
-@25/60
+
+
+
+@27/60
