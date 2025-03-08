@@ -285,6 +285,7 @@ podman build -t pdm-golang .
 ```
 - The dot notation `.` tells Podman that our Dockerfile is located in the current working directory
 
+Here's the output of the `podman build` command:  
 ![image](https://github.com/user-attachments/assets/d848fc67-a556-45ab-9c34-107b74b16f4d)
 
 As you can see in the above screenshot, the 
