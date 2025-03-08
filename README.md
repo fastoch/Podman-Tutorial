@@ -259,9 +259,34 @@ And inside the container, our app will run on an Alpine Linux distribution.
 Here's our Dockerfile:
 ```dockerfile
 FROM golang:1.22-alpine
+WORKDIR /app
+COPY go.mod ./
+RUN go mod download
+COPY *.go ./
+RUN go build -o /pdm-golang
+EXPOSE 8080
+CMD ["/pdm-golang"]
 ```
-- the first line specifies the base image: a pre-configured environment with Go 1.22 installed on top of Alpine Linux
-- 
+- line 1 specifies the base image: a pre-configured environment with Go 1.22 installed on top of Alpine Linux
+- line 2 specifies the working directory within our container filesystem
+- line 3 copies the go.mod file from the host machine to the current working directory in the container (/app)
+- line 4 downloads and installs any dependencies specified in the go.mod file 
+- line 5 copies any .go file from the host machine to the /app folder inside the container 
+- line 6 builds the app and generates an executable named "pdm-golang" in the root directory of the container filesystem
+- line 7 informs Podman that the application will listen on port 8080
+- line 8 specifies the command to run when the container starts, which will execute the pdm-golang file created at line 6
+
+When this Dockerfile is used to create our container image, the resulting image will contain the compiled Go application 
+and its dependencies, making it easy to deploy and run our application on any machine that has a container runtime installed.  
+
+To build our image from our newly created Dockerfile, run the following cmd from our project folder:  
+```bash
+podman build -t pdm-golang .
+```
+- The `.` means tells Podman that our Dockerfile is located in the current working directory
 
 
-@27/60
+
+
+
+@28/60
