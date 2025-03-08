@@ -283,10 +283,11 @@ To build our image from our newly created Dockerfile, run the following cmd from
 ```bash
 podman build -t pdm-golang .
 ```
-- The `.` means tells Podman that our Dockerfile is located in the current working directory
+- The dot notation `.` tells Podman that our Dockerfile is located in the current working directory
 
+![image](https://github.com/user-attachments/assets/d848fc67-a556-45ab-9c34-107b74b16f4d)
 
-
+As you can see in the above screenshot, the 
 
 
 @28/60
