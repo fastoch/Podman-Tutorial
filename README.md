@@ -178,8 +178,16 @@ The endpoint responds with the message "Hello Podman from Go!".
 - if not, install it via `sudo apt install golang-go` (if running a Debian-based Linux distro)
 - now, let's create a **project folder**: `mkdir pdm-golang`
 - make it the working directory: `cd pdm-golang`
-- 
+- to initialize our Go project: `go mod init pdm-golang`
+
+### About the `go mod init` command
+
+The primary purpose of `go mod init` is to initialize a Go module in our project.  
+A Go module is a collection of related Go packages that are versioned together, ensuring reproducible builds by tracking dependencies and their versions.  
+
+It simplifies dependency management by creating a `go.mod` file, which lists the module's dependencies and their versions.  
+This file is crucial for maintaining reproducible builds across different environments.
 
 
 
-@24/60
+@25/60
