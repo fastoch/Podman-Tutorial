@@ -316,10 +316,10 @@ In the following example, we'll push the container image to DockerHub.
 
 - `podman login docker.io`
 
-![image](https://github.com/user-attachments/assets/6f513750-f60b-45cc-9874-089a3181f6b8)
+![image](https://github.com/user-attachments/assets/6f513750-f60b-45cc-9874-089a3181f6b8)  
 
-- Next, we need to rebuild the container image by adding our username (or company name) as a prefix to the image tag:
-  `podman build -t fastoch/pdm-golang .`
+Next, we need to rebuild the container image by adding our username (or company name) as a prefix to the image tag:  
+`podman build -t fastoch/pdm-golang .`
 
 Now, we should find this new container image on our local machine:  
 ![image](https://github.com/user-attachments/assets/2cd2d936-44f3-43e7-b44f-ca5c03eb3850)
