@@ -318,7 +318,25 @@ In the following example, we'll push the container image to DockerHub.
 
 ![image](https://github.com/user-attachments/assets/6f513750-f60b-45cc-9874-089a3181f6b8)
 
-- 
+- Next, we need to rebuild the container image by adding our username (or company name) as a prefix to the image tag:
+`podman build -t fastoch/pdm-golang .`
+
+Now, we should find this new container image on our local machine:  
+![image](https://github.com/user-attachments/assets/87d40108-370c-4a48-a9d6-844e4ae97cab)
+This is exactly the same image as the one we've previously created (same ID).  
+
+This format <username>/<image_name> is important because it tells Podman where to publish the image in the registry.  
+
+- To publish (push) the image on the registry: `podman push fastoch/pdm-golang`
+
+We have successfully published our first container image to the DockerHub registry:  
+![image](https://github.com/user-attachments/assets/f74e0bf7-2ca0-491a-9140-ce3e54643f1e)
+
+Now, we can pull our own image:  
+![image](https://github.com/user-attachments/assets/aad2b6bb-76c5-40e0-8d10-a76f712cd583)  
+
+And test it:  
+![image](https://github.com/user-attachments/assets/e413ca9b-1d48-4ab6-b444-4438e19d09a0)
 
 ---
 
@@ -331,4 +349,4 @@ Now we need to learn how to deploy it so it runs in a production environment.
 
 
 
-@30/60
+@33/60
