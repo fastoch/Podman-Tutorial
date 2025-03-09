@@ -117,7 +117,7 @@ podman inspect <container_name_or_ID>
 podman port <container_name_or_ID>
 podman rm <container_name_or_ID>
 podman images
-podman rmi <image ID>
+podman rmi <image ID or image repo>
 ```
 - `podman --help` to show information about all podman commands
 - `podman inspect` provides all the low-level information about the container in JSON format
@@ -342,10 +342,20 @@ And test it:
 
 # Building Pods with Podman
 
-Unlike Docker, Podman allows us to create **pods**, which are similar to **Kubernetes** pods.  
-These pods provide a way for applications to be managed and scaled within a Kubernetes **cluster**.  
+## A unique and powerful Podman feature
 
-**Kubernetes API objects** such as Deployments, ReplicaSets, and StatefulSets are used to define and manage the desired state of applications running in a Kubernetes cluster.  
+Unlike Docker, Podman allows us to create **pods**, which are similar to **Kubernetes pods**.  
+These pods provide a way for our containerized applications to be managed and scaled within a Kubernetes **cluster**.  
+
+## About Pods and Namespaces
+
+Pods are a group of one or more containers sharing the same Network, PID and IPC namespaces.  
+- PID = process ID
+- IPC = inter-process communication
+
+**Namespaces** are particularly useful in containerization technologies, where they help create isolated environments.   
+Applications deployed in such isolated environments can run without affecting the host system or other containers.
+By combining IPC namespaces with other types of namespaces (such as PID, Network, and Mount), developers can create fully isolated and secure container environments.  
 
 ## Useful commands for managing Podman pods
 
@@ -353,6 +363,7 @@ These pods provide a way for applications to be managed and scaled within a Kube
 - `podman pod create --name <pod_name>` creates a new and empty pod
 - `podman pod ls` lists all created pods
 - `podman ps -a --pod` lists all containers, including stopped ones, along with information about the pods they belong to
+
 
 
 @36/60
