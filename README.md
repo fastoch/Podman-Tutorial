@@ -355,6 +355,7 @@ Pods are a group of one or more containers sharing the same Network, PID and IPC
 
 **Namespaces** are particularly useful in containerization technologies, where they help create isolated environments.   
 Applications deployed in such isolated environments can run without affecting the host system or other containers.  
+
 By combining IPC namespaces with other types of namespaces (such as PID, Network, and Mount), developers can create fully isolated and secure container environments.  
 
 ## Useful commands for managing Podman pods
