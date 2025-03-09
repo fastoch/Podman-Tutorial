@@ -386,9 +386,11 @@ The `-dt` flags tells Podman to run the container in detached mode and to alloca
 To add our custom pdm-golang container to the pod we have created:  
 `podman run -dt --pod <pod_name> pdm-golang`  
 
-Now we can see that our pod has 2 containers, the infra container and the custom pdm-golang one:  
-![image](https://github.com/user-attachments/assets/05fb79a5-6be7-4ae2-be64-58e0e717fbf1)
+Now we can see that our pod has 2 containers, the infra container and our custom pdm-golang container:  
+![image](https://github.com/user-attachments/assets/ed033ed6-7286-4ef7-8c83-4822eb21c708)
 
+We can also see that the pdm-golang container running inside the pod doesn't have the same ID as the one we've created earlier.  
+Which confirms they are not the same, we've used the same image to create a separate container that lives inside the specified pod.
 
 Before removing a pod, it's recommended to stop it via `podman pod stop <pod_name>`.  
 
