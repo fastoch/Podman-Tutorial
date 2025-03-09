@@ -473,4 +473,4 @@ You can install on Windows (via WSL), MacOS, and Linux. It will also install the
 
 
 
-@50/60
+@53/60
