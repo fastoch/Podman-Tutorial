@@ -418,7 +418,9 @@ To restart a pod: `podman pod start <pod_name>`
 
 # Working with K8s YAML Manifests
 
-One of the most remarkable features of Podman is its ability to generate a K8s YAML manifest from a pod.  
+## Generate a K8s Manifest from a Podman pod
+
+One of the most remarkable features of Podman is its ability to generate a K8s **YAML** manifest from a pod.  
 Which can save developers a lot of time and effort when it comes to deploying containerized apps to a **K8s cluster**.  
 
 A K8s YAML manifest is a .yaml file that contains instructions on how to create and manage objects such as:
@@ -434,6 +436,31 @@ A manifest file contains important information such as:
 - how things are related to each other in the cluster  
 
 The process of generating the K8s .yaml file from a podman pod is quite simple.  
+The syntax is: `podman generate kube <pod_name> -f <filename>.yaml`  
+
+## Use an existing K8s Manifest to create a Podman pod
+
+Imagine that you have a K8s .yaml file that defines a pod you want to test on your local Podman instance.  
+Podman provides a command to achieve this: `podman play kube <filename>.yaml`  
+This allows you to test the functionality of your K8s configurations locally before deploying them to your production environment.
+
+## Practical example
+
+- First, let's remove our previous pod via `podman pod rm beautiful_mayer`
+- Then, let's create a new pod and add a new instance of our custom container to it in a single command:
+```bash
+podman run -dt --pod new:pdm-golang-pod -p 8080:8080 pdm-golang
+```
+
+![image](https://github.com/user-attachments/assets/4bc407e9-8d95-4c99-90e7-a231530deb87)  
+
+- Now, we can generate a K8s YAML manifest out of this pod: `podman generate kube pdm-golang-pod -f pdm-golang.yaml`
+
+![image](https://github.com/user-attachments/assets/ef3f325e-2dee-46ff-ad19-0e8d3c291c82)
+
+- Let's remove our pod, and recreate it via our .yaml file:
+
+![image](https://github.com/user-attachments/assets/928a97e9-cde0-4690-8772-2a5a99586131)
 
 
-@45/60
+@47/60
