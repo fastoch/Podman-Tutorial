@@ -466,6 +466,11 @@ podman run -dt --pod new:pdm-golang-pod -p 8080:8080 pdm-golang
 
 # Podman Desktop
 
+Podman Desktop is an open-source GUI enabling you to work with containers and K8s from your local environment.  
+You can install on Windows (via WSL), MacOS, and Linux. It will also install the Podman CLI if needed.  
 
 
-@48/60
+
+
+
+@50/60
