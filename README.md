@@ -378,9 +378,20 @@ It also allows Podman to:
 
 ## Working with containers inside a pod
 
-Let's add our pdm-golang custom container to the pod we've just created:  
+To add an Alpine Linux container running the top command to a pod named "youthful_jones", you would use:  
+`podman run -dt --pod youthful_jones docker.io/library/alpine:latest top`  
+
+The `-dt` flags tells Podman to run the container in detached mode and to allocate a TTY (pseudo-terminal) to that container.  
+
+To add our custom pdm-golang container to the pod we have created:  
+`podman run -dt --pod <pod_name> pdm-golang`  
+
+Now we can see that our pod has 2 containers, the infra container and the custom pdm-golang one:  
+![image](https://github.com/user-attachments/assets/05fb79a5-6be7-4ae2-be64-58e0e717fbf1)
+
+
+Before removing a pod, it's recommended to stop it via `podman pod stop <pod_name>`.  
 
 
 
-
-@39/60
+@40/60
