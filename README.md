@@ -344,8 +344,8 @@ And test it:
 
 ## A unique and powerful Podman feature
 
-Unlike Docker, Podman allows us to create **pods**, which are similar to **Kubernetes pods**.  
-These pods provide a way for our containerized applications to be managed and scaled within a Kubernetes **cluster**.  
+Unlike Docker, and as its name indicates, Podman allows us to create **pods**, which are similar to **Kubernetes pods**.  
+These pods provide a way for our **containerized applications** to be **managed** and **scaled** within a Kubernetes **cluster**.  
 
 ## About Pods and Namespaces
 
@@ -414,6 +414,26 @@ And to remove it: `podman rm <container>`
 
 To restart a pod: `podman pod start <pod_name>`  
 
+---
+
+# Working with K8s YAML Manifests
+
+One of the most remarkable features of Podman is its ability to generate a K8s YAML manifest from a pod.  
+Which can save developers a lot of time and effort when it comes to deploying containerized apps to a **K8s cluster**.  
+
+A K8s YAML manifest is a .yaml file that contains instructions on how to create and manage objects such as:
+- Pods
+- Deployments
+- Services
+- ConfigMaps
+
+A manifest file contains important information such as:
+- which container image to use
+- environment variables
+- volumes
+- how things are related to each other in the cluster  
+
+The process of generating the K8s .yaml file from a podman pod is quite simple.  
 
 
-@43/60
+@45/60
