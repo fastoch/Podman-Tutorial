@@ -395,11 +395,14 @@ Which confirms they are not the same, we've used the same image to create a sepa
 We can use the `podman ps --pod` command to see the containers running inside the pod:  
 ![image](https://github.com/user-attachments/assets/dd15d4da-a6f5-4d66-882f-3ac7d9dd6e8c)  
 
+### Stopping and Removing pods and containers
+
 We can use the regular `podman stop` command to stop containers running inside a pod:  
 ![image](https://github.com/user-attachments/assets/7ad17a68-aea7-4e6d-a707-d96283b842cd)  
 
 We can then start them back:  
 ![image](https://github.com/user-attachments/assets/7fc9fe9a-b496-43d3-9ef9-fbfa3c9198ac)
+
 
 Before removing a pod, it's recommended to stop it via `podman pod stop <pod_name>`.  
 Applying the same logic, we should run the `podman stop <container>` command before removing a container.  
