@@ -378,6 +378,8 @@ It also allows Podman to:
 
 ## Working with containers inside a pod
 
+Even if the containers are inside a pod, you can use all the previous podman commands.  
+
 To add an Alpine Linux container running the top command to a pod named "youthful_jones", you would use:  
 `podman run -dt --pod youthful_jones docker.io/library/alpine:latest top`  
 
@@ -405,9 +407,13 @@ We can then start them back:
 
 
 Before removing a pod, it's recommended to stop it via `podman pod stop <pod_name>`.  
+Then we can remove it: `podman pod rm <pod_name>`
+
 Applying the same logic, we should run the `podman stop <container>` command before removing a container.  
+And to remove it: `podman rm <container>`  
+
+To restart a pod: `podman pod start <pod_name>`  
 
 
 
-
-@42/60
+@43/60
