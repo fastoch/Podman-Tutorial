@@ -102,6 +102,7 @@ To display all running containers: `podman ps`
 To see all containers and their current status: `podman ps -a`  
 
 We can use the `--name` flag when creating a container. If we don't specify a container name, podman will give it a random name.  
+Using the `--name` flag can lead to **naming conflicts**, it's best not to use it and let podman assign random names.
 
 ---
 
@@ -132,7 +133,6 @@ podman search nginx
 podman run --name pdm-nginx -p 8080:80 nginx
 ```
 - Note that the `podman run` command will only pull the image if it's not already present on your system
-- Using the `--name` flag can lead to **naming conflicts**, it's best not to use it and let podman assign random names
 - if you haven't used `-d` to run the container in detached mode, press `Ctrl + C` to stop it.
 - when using the `podman start` command, your container will run in detached mode by default
 
@@ -340,7 +340,7 @@ And test it:
 
 ---
 
-# Building Pods with Podman
+# Working with Podman Pods
 
 ## A unique and powerful Podman feature
 
@@ -361,10 +361,26 @@ By combining IPC namespaces with other types of namespaces (such as PID, Network
 ## Useful commands for managing Podman pods
 
 - `podman pod --help` provides a list of all available commands and options to use when working with pods
-- `podman pod create --name <pod_name>` creates a new and empty pod
+- `podman pod create --name <pod_name>` creates a new empty pod
+  - just like with container creation, we should avoid using the --name flag when creating pods
 - `podman pod ls` lists all created pods
 - `podman ps -a --pod` lists all containers, including stopped ones, along with information about the pods they belong to
 
+![image](https://github.com/user-attachments/assets/cb7f7c78-0cc6-4c7b-85cf-01c47388f743)
+
+As you can see, our empty pod is not actually empty, it already has 1 container inside of it. But where does it come from?  
+When you create a pod, Podman systematically creates a special container inside this new pod: **the infra container**.  
+
+That special container serves the purpose of holding the namespaces associated with the pod.  
+It also allows Podman to: 
+- connect other containers to the pod
+- start and stop containers within the pod (while keeping the pod running)
+
+## Working with containers inside a pod
+
+Let's add our pdm-golang custom container to the pod we've just created:  
 
 
-@36/60
+
+
+@39/60
