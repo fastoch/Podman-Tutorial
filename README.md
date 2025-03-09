@@ -401,10 +401,10 @@ We can use the regular `podman stop` command to stop containers running inside a
 We can then start them back:  
 ![image](https://github.com/user-attachments/assets/7fc9fe9a-b496-43d3-9ef9-fbfa3c9198ac)
 
-
-
-
 Before removing a pod, it's recommended to stop it via `podman pod stop <pod_name>`.  
+Applying the same logic, we should run the `podman stop <container>` command before removing a container.  
+
+
 
 
 @42/60
